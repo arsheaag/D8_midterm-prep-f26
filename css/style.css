@@ -5,33 +5,123 @@
 
 /* Level 1: Skip to Main Content link */
 
+.jumper {
+    position: absolute;
+    left: -1000px;
+}
+
+.jumper:focus {
+    left: 10px;
+    top: 10px;
+    background-color: white;
+    padding: 10px;
+    z-index: 1000;
+}
+
 /* Level 2: Resizing Images */
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
 
 /* Level 3: Grid container*/
 
+.first {
+    display: grid;
+    grid-template-columns: repeat(3, 25%);
+    border: 3px solid #e91e63;
+    gap: 50px;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+
 /* Level 4: Grid children */
 
+.first > div {
+    border: 3px dashed #7332a8;
+    background-color: #c0c0c0;
+    border-radius: 10px;
+    padding: 45px 20px;
+    text-align: center;
+}
 /* Level 5: Last element spans all columns */
+
+.first > div:last-child {
+    grid-column: 1 / -1;
+    border-radius: 0;
+}
 
 /* Level 6: Middle column with :nth-child */
 
+.first > div:nth-child(3n + 2) {
+    background-color: white;
+}
+
 /* Level 7: Change font of the special class */
+
+.special {
+    font-family: "Brush Script MT", cursive;
+    font-weight: bold;
+}
 
 /* Level 8: Hover */
 
+.first > div:hover {
+    background-color: #7332a8;
+    color: white;
+}
+
 /* Level 9: Banner image (.banner) */
 
+.banner {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border-left: 5px solid #7332a8;
+    border-bottom: 5px solid #7332a8;
+}
 /* Level 10: Desktop breakpoint (800px) */
 
+@media screen and (min-width: 800px) {
+    .first {
+        background-color: #bdd4fc;
+        justify-items: center;
+    }
+
+    .first > div {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .banner {
+        height: 300px;
+    }
+}
+
+
 /* Bonus: justify-content vs. justify-items
-   Explain the difference in a comment here. */
+   Explain the difference in a comment here.
+   justify-content aligns the entire grid within its container,
+   while justify-items aligns individual items inside their grid cells. */
 
 /* Bonus: Why can't you use display: none to hide
-    your skip to main? Explain here? */
+    your skip to main? Explain here? 
+    display: none removes the link from keyboard navigation,
+   so users cannot tab to it. Instead, we hide it off-screen
+   and make it visible when focused.*/
 
 /* Bonus: What CSS style could you use to give
     space between the red border and the grid items?
-    Which selector would you add it to? */
+    Which selector would you add it to? 
+    We can use padding to add space inside the red border.
+   Add it to the .first > div selector. */
 
 /* Bonus: Why does .banner overwrite the
-    img selector? */
+    img selector? 
+    .banner has higher specificity than the img selector
+   because classes are more specific than element selectors.
+   Therefore, its conflicting styles take priority. */
