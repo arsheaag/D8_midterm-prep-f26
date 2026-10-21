@@ -6,8 +6,8 @@
 /* Level 1: Skip to Main Content link */
 
 .jumper {
-    position: absolute;
-    left: -1000px;
+    position: relative;
+    left: -100px;
 }
 
 .jumper:focus {
@@ -21,7 +21,7 @@
 /* Level 2: Resizing Images */
 
 img {
-    width: 100px;
+    width: auto;
     height: 100px;
     object-fit: contain;
 }
@@ -34,7 +34,8 @@ img {
     border: 3px solid #e91e63;
     gap: 50px;
     padding: 20px;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-content: center;
 }
 
 /* Level 4: Grid children */
